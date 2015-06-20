@@ -10,6 +10,7 @@ class Autoloader
     {
         spl_autoload_register(
             function($class) {
+                $class = preg_replace('@^\\\\@', '', $class);
                 foreach ($this->aliases as $alias => $actual) {
                     if (strpos($class, $alias) === 0) {
                         class_alias(
@@ -25,8 +26,10 @@ class Autoloader
         );
     }
 
-    public function alias($requested, $really)
+    public function rewrite($requested, $really)
     {
+        $requested = preg_replace('@^\\\\@', '', $requested);
+        $really = preg_replace('@^\\\\@', '', $really);
         $this->aliases[$requested] = $really;
     }
 }
