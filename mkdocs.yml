@@ -1,0 +1,8 @@
+site_name: Mural documentation
+site_url: http://mural.monomelodies.nl/docs/
+repo_url: https://github.com/monomelodies/mural
+
+pages:
+- Home:
+    - 'Quickstart': 'index.md'
+
