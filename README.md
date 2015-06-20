@@ -1,0 +1,2 @@
+# mural
+Multiple "resource" autoloader
