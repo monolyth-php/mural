@@ -1,0 +1,15 @@
+{
+    "name": "monomelodies/mural",
+    "description": "MUltiple \"Resource\" AutoLoader",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marijn Ophorst",
+            "email": "marijn@monomelodies.nl"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    }
+}
