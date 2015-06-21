@@ -143,5 +143,5 @@ $mural->rewrite('\\', 'Gay\\');
 ...and finally in your tests, just test `Straight\Search` and `Gay\Search`.
 
 Mural blindly checks a string match and kicks into action if `strpos === 0`. So
-you can just as well only override subnamespaces.
+you can just as well only override subnamespaces, pass full classnames etc.
 
