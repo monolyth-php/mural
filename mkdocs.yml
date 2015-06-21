@@ -5,6 +5,7 @@ repo_url: https://github.com/monomelodies/mural
 pages:
 - Home:
     - 'Quickstart': 'index.md'
+    - 'FAQ': 'faq.md'
 
 copyright: Copyright &copy; 2015, <a href="http://www.monomelodies.nl/">Marijn Ophorst</a>
 
