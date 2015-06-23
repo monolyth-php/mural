@@ -2,7 +2,9 @@
 
 namespace Bar;
 
-class Foo
+use Foo\Baz;
+
+class Foo implements Baz
 {
 }
 
