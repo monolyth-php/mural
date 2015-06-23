@@ -8,11 +8,18 @@ class Autoloader
 
     public function __construct()
     {
+        $running = false;
         spl_autoload_register(
-            function($class) {
+            function ($class) use (&$running) {
+                if ($running) {
+                    return false;
+                }
                 $class = preg_replace('@^\\*@', '', $class);
                 foreach ($this->aliases as $alias => $actual) {
-                    if (strpos($class, $alias) === 0) {
+                    if (!strlen($alias)) {
+                        $running = true;
+                    }
+                    if (!strlen($alias) || strpos($class, $alias) === 0) {
                         $new = preg_replace("@^$alias@", $actual, $class);
                         if (class_exists($new)
                             || interface_exists($new)
@@ -23,6 +30,7 @@ class Autoloader
                         }
                     }
                 }
+                $running = false;
             },
             true,
             true
