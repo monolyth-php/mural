@@ -145,3 +145,53 @@ $mural->rewrite('\\', 'Gay\\');
 Mural blindly checks a string match and kicks into action if `strpos === 0`. So
 you can just as well only override subnamespaces, pass full classnames etc.
 
+## FAQ and gotchas
+
+### A note on type checking
+`class_alias` renames your class, but keeps other "metadata" intact. Hence,
+using the above examples:
+
+```php
+<?php
+
+$search = new Search;
+echo get_class($search); // Straight\Search
+echo $search instanceof Straight\Search; // true
+echo $search instanceof Search; // also true!
+
+```
+
+### Classes, traits, interfaces...
+Mural works on all of these.
+
+### Recursiveness
+For global rewrites (i.e., empty namespace as in the above examples) Mural does
+not "recurse", i.e.:
+
+```php
+<?php
+
+$mural->rewrite('\\', 'Foo\\');
+
+// Bar gets rewritten to Foo\Bar, but Bar\Baz is autoloaded verbatim.
+class Bar extends Bar\Baz
+{
+}
+
+// To rewrite Bar\Baz to Foo\Bar\Baz as well, you'd need an extra call to
+// `rewrite` as follows:
+
+$mural->rewrite('Bar', 'Foo\\Bar\\');
+
+```
+
+The simple reason is that for global namespaces, it would cause an infinite
+loop (and a segmentation fault).
+
+### Leading and trailing backslashes
+Leading backslashes are stripped automatically and are optional. Trailing
+backslashes are important:
+
+    1. Alias with a trailing backslash to specify a namespace;
+    2. Alias without the backslash to alias a _classname_.
+
