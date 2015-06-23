@@ -17,13 +17,5 @@ class RewriteTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Baz', get_class($baz));
         $dummy = new Dummy;
     }
-
-    public function testInterface()
-    {
-    }
-
-    public function testTrait()
-    {
-    }
 }
 
