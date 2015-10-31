@@ -26,11 +26,13 @@ class Autoloader
                             || trait_exists($new)
                         ) {
                             class_alias($new, $class);
-                            break;
+                            $running = false;
+                            return true;
                         }
                     }
                 }
                 $running = false;
+                return false;
             },
             true,
             true
@@ -39,8 +41,8 @@ class Autoloader
 
     public function rewrite($requested, $really)
     {
-        $requested = preg_replace('@^\\*@', '', $requested);
-        $really = preg_replace('@^\\*@', '', $really);
+        $requested = preg_replace('@^\\\\{1,}@', '', $requested);
+        $really = preg_replace('@^\\\\{1,}@', '', $really);
         $this->aliases[$requested] = $really;
     }
 }
