@@ -4,7 +4,7 @@ class RewriteTest extends PHPUnit_Framework_TestCase
 {
     public function testRewrite()
     {
-        $mural = new Mural\Autoloader;
+        $mural = new Monolyth\Mural\Autoloader;
         $mural->rewrite('Foo', 'Bar\Foo');
         $mural->rewrite('', 'Noop\\');
         $foo = new Foo;
