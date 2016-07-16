@@ -1,6 +1,6 @@
 <?php
 
-namespace Mural;
+namespace Monolyth\Mural;
 
 class Autoloader
 {
