@@ -8,12 +8,12 @@ shared code base clean.
 ## Installation
 
 ### Composer (recommended)
-```composer require monomelodies/mural```
+```composer require monolyth/mural```
 
 ### Manual
-Clone or download the repo, and make sure the `Mural` namespace maps to the
-`src` directory of Mural in your autoloader. Since it's only one file, you
-could also `require` it manually.
+Clone or download the repo, and make sure the `Monolyth\\Mural` namespace maps
+to the `src` directory of Mural in your autoloader. Since it's only one file,
+you could also `require` it manually.
 
 ## The problem
 Your average small site will have code somewhere (say, `src`) and a public
@@ -107,7 +107,7 @@ specify it to:
 ```
 <?php
 
-$mural = new Mural\Autoloader;
+$mural = new Monolyth\Mural\Autoloader;
 $mural->rewrite('\\', 'Straight\\');
 
 ```
@@ -125,7 +125,7 @@ In `straight.com/index.php`:
 ```
 <?php
 
-$mural = new Mural\Autoloader;
+$mural = new Monolyth\Mural\Autoloader;
 $mural->rewrite('\\', 'Straight\\`);
 
 ```
@@ -135,7 +135,7 @@ $mural->rewrite('\\', 'Straight\\`);
 ```
 <?php
 
-$mural = new Mural\Autoloader;
+$mural = new Monolyth\Mural\Autoloader;
 $mural->rewrite('\\', 'Gay\\');
 
 ```
