@@ -1,5 +1,5 @@
 {
-    "name": "monomelodies/mural",
+    "name": "monolyth/mural",
     "description": "MUltiple \"Resource\" AutoLoader",
     "type": "library",
     "license": "MIT",
@@ -18,7 +18,7 @@
     "autoload": {
         "psr-4": {
             "": ["tests"],
-            "Mural\\": ["src"]
+            "Monolyth\\Mural\\": ["src"]
         }
     }
 }
